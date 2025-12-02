@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cấu hình WiFi cho ESP32 (Hosted)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Thiết lập WiFi của bạn</h2>
+      <form id="wifiForm">
+        <label for="ssid_select">Chọn mạng WiFi:</label><br />
+        <select
+          name="ssid"
+          id="ssid_select"
+          onchange="document.getElementById('ssid_input').value = this.value;"
+        >
+          <option value="">-- Đang quét WiFi... --</option></select
+        ><br />
+        <input
+          type="text"
+          id="ssid_input"
+          name="ssid_manual"
+          placeholder="Hoặc nhập SSID thủ công"
+        /><br />
+
+        <label for="password">Mật khẩu:</label><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Nhập mật khẩu"
+          autocomplete="off"
+        /><br />
+
+        <button type="submit">Kết nối</button>
+      </form>
+      <button class="refresh-button" onclick="refreshWifiList()">
+        Quét lại WiFi
+      </button>
+      <p id="status_message"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
